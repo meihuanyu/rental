@@ -1,11 +1,7 @@
-# IPProxyTool
-使用 scrapy 爬虫抓取代理网站，获取大量的免费代理 ip。过滤出所有可用的 ip，存入数据库以备使用。
-可以访问我的个人站点，查看我的更多有趣项目 [awolfly9](http://awolfly9.com/)
-
-感谢 [youngjeff](https://github.com/youngjeff) 和我一起维护该项目
+#本项目是在https://github.com/awolfly9/IPProxyTool.git抓取代理ip的项目上 新增的一个模块
 
 ## 运行环境
-安装 python3  and mysql 数据库
+安装 python2 and mysql mongodb
 
 ```
 $ pip install -r requirements.txt
@@ -13,32 +9,17 @@ $ pip install -r requirements.txt
 
 
 
-## 下载使用
-将项目克隆到本地
-
-```
-$ git clone https://github.com/awolfly9/IPProxyTool.git
-```
 
 进入工程目录
 
 ```
-$ cd IPProxyTool
+$ cd rental
 ```
-修改 mysql 数据库配置 [config.py](https://github.com/awolfly9/IPProxyTool/blob/master/config.py) 中 database_config 的用户名和密码为数据库的用户名和密码
+修改 数据库配置 ./config.py 中 database_config 的用户名和密码为数据库的用户名和密码
 
-```
-$ vim config.py
----------------
 
-database_config = {
-	'host': 'localhost',
-	'port': 3306,
-	'user': 'root',
-	'password': '123456',
-	'charset': 'utf8',
-}
-```
+
+   
 
 
 运行启动脚本 ipproxytool.py 也可以分别运行抓取，验证，服务器接口脚本，运行方法参考项目说明
@@ -169,6 +150,11 @@ $ python run_server.py
 
 
 ## 项目更新
+-----------------------------2017-7-21----------------------------<br>
+原项目 已经不支持2.7 由于机器的原因暂时没法支持3 所以改写了不兼容部分<br>
+加入了爬去目标网站模块<br>
+加入自动更换代理ip 自动跟换头信息 （采用ip连续出错10次即推出）<br>
+<br>
 -----------------------------2017-6-23----------------------------<br>
 1.python2 -> python3<br>
 2.web.py -> flask<br>
