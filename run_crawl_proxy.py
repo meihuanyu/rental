@@ -25,7 +25,7 @@ from ipproxytool.spiders.proxy.proxyrox import ProxyRoxSpider
 scrapydo.setup()
 
 if __name__ == '__main__':
-    os.chdir(sys.path[0])
+    os.chdir(sys.path[4])
 
     if not os.path.exists('log'):
         os.makedirs('log')

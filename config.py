@@ -1,8 +1,8 @@
 # coding=utf-8
 
 DB_config = {
-    # 'db_type': 'mongodb',
-    'db_type': 'mysql',
+     'db_type': 'mongodb',
+    # 'db_type': 'mysql',
 
     'mysql': {
         'host': 'localhost',
@@ -19,9 +19,7 @@ DB_config = {
     },
     'mongodb':{
         'host': 'localhost',
-        'port': 27017,
-        'username': '',
-        'password': '',
+        'port': 27017
     }
 }
 

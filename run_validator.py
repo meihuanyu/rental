@@ -8,6 +8,7 @@ import time
 import scrapydo
 import utils
 
+from ipproxytool.spiders.validator.iwjw import IwjwSpider
 from ipproxytool.spiders.validator.douban import DoubanSpider
 from ipproxytool.spiders.validator.assetstore import AssetStoreSpider
 from ipproxytool.spiders.validator.gather import GatherSpider
@@ -19,17 +20,19 @@ from ipproxytool.spiders.validator.liepin import LiepinSpider
 from ipproxytool.spiders.validator.jd import JDSpider
 from ipproxytool.spiders.validator.bbs import BBSSpider
 
+
 scrapydo.setup()
 
 
 def validator():
     validators = [
         HttpBinSpider,  # 必须
+        IwjwSpider,
         # LagouSpider,
         # BossSpider,
         # LiepinSpider,
         # JDSpider,
-        DoubanSpider,
+        #DoubanSpider,
         # BBSSpider,
     ]
 

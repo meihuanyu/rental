@@ -6,7 +6,7 @@ import config
 import pymysql
 
 from proxy import Proxy
-from sql.sql_base import SqlBase
+from sql_base import SqlBase
 
 
 class MySql(SqlBase):

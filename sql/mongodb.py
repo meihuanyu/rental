@@ -4,10 +4,12 @@ import logging
 import pymongo
 import config
 import json
+import time
 import datetime
+import utils
 
 from proxy import Proxy
-from sql.sql_base import SqlBase
+from sql_base import SqlBase
 
 
 class Mongodb(SqlBase):
@@ -24,9 +26,19 @@ class Mongodb(SqlBase):
 
     def insert_proxy(self, table_name, proxy):
         data = proxy.get_dict()
-        data['save_time'] = str(datetime.datetime.now())
-        self.db[table_name].insert(data)
-
+        data['save_time'] = str(time.time())
+        data['create_time'] = str(datetime.datetime.now())
+        self.db[table_name].create_index([("ip", pymongo.DESCENDING)], unique=True)
+        try:
+            self.db[table_name].insert(data)
+        except BaseException,e:
+            if "E11000 duplicate key error collection" in e.message:
+                utils.log(str(e.message.split(' ')[12])+"在数据库中从重复")
+    def insert_data(self,table_name,item):
+        try:
+            self.db[table_name].insert(dict(item))
+        except:
+            pass
     def select_proxy(self, table_name, **kwargs):
         filter = {}
         if kwargs.get('anonymity') != '':
@@ -42,7 +54,7 @@ class Mongodb(SqlBase):
             {'_id': proxy.id},
             {'$set':
                  {'https': proxy.https, 'speed': proxy.speed, 'vali_count': proxy.vali_count,
-                  'anonymity': proxy.anonymity, 'save_time': str(datetime.datetime.now())}})
+                  'anonymity': proxy.anonymity, 'save_time': str(time.time())}})
 
     def delete_proxy(self, table_name, proxy):
         return self.del_proxy_with_id(table_name, proxy.id)

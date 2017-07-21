@@ -2,7 +2,7 @@
 
 import config
 
-from sql.sql_base import SqlBase
+from sql_base import SqlBase
 
 
 class SqlManager(object):
@@ -18,7 +18,7 @@ class SqlManager(object):
         elif db_type == 'sqlite':
             pass
         elif db_type == 'mongodb':
-            from sql.mongodb import Mongodb
+            from mongodb import Mongodb
             self.sql = Mongodb(**db_config)
         else:  # default mysql
             from sql.mysql import MySql
@@ -32,6 +32,9 @@ class SqlManager(object):
 
     def insert_proxy(self, table_name, proxy):
         return self.sql.insert_proxy(table_name, proxy)
+
+    def insert_data(self, table_name, proxy):
+        return self.sql.insert_data(table_name, proxy)
 
     def select_proxy(self, table_name, **kwargs):
         return self.sql.select_proxy(table_name, **kwargs)
