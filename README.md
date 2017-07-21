@@ -68,10 +68,10 @@ $ python run_crawl_proxy.py
 1，在spiders文件夹追加爬虫,在run_rental.py引入即可<br>
 2,setting.py 里面配置爬虫<br>
 
-单独运行 爬虫 run_tental.py
+单独运行 爬虫 run_rental.py
 
 ```
-$ python run_tental.py
+$ python run_rental.py
 ```
 
 
