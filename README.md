@@ -63,6 +63,18 @@ $ python run_crawl_proxy.py
 3.然后调用 init 方法,可以参考 [baidu](https://github.com/awolfly9/IPProxyTool/blob/master/ipproxytool/spiders/validator/baidu.py) [douban](https://github.com/awolfly9/IPProxyTool/blob/master/ipproxytool/spiders/validator/douban.py)<br>
 4.如果需要特别复杂的验证方式，可以参考 [assetstore](https://github.com/awolfly9/IPProxyTool/blob/master/ipproxytool/spiders/validator/assetstore.py)<br>
 ##### 修改 run_validator.py 导入验证库，添加到验证队列
+
+#### 爬虫存放于rental文件夹
+1，在spiders文件夹追加爬虫,在run_rental.py引入即可<br>
+2,setting.py 里面配置爬虫<br>
+
+单独运行 爬虫 run_tental.py
+
+```
+$ python run_tental.py
+```
+
+
 可以单独运行 run_validator.py 开始验证代理ip的有效性
 
 ```
