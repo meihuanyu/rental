@@ -89,49 +89,6 @@ $ python run_validator.py
 $ python run_server.py
 ```
 
-服务器提供接口
-#### 获取
-<http://127.0.0.1:8000/select?name=httpbin&anonymity=1&https=yes&order=id&sort=desc&count=100>
-
-参数
-
-| Name    | Type   | Description   | must |
-| ----    | ----   | ----          | ---- |
-| name    | str    | 数据库名称      | 是   |
-| anonymity | int  | 1:高匿 2:匿名 3:透明 | 否 |
-| https     | str  | https:yes http:no  | 否 |
-| order     | str  | table 字段  | 否 |
-| sort      | str | asc 升序，desc 降序 | 否 |
-| count | int | 获取代理数量，默认 100 | 否 |
-
-
-
-
-#### 删除
-<http://127.0.0.1:8000/delete?name=httpbin&ip=27.197.144.181>
-
-参数
-
-| Name | Type | Description | 是否必须|
-| ----| ---- | ---- | --- |
-| name | str | 数据库名称 |  是 |
-| ip | str | 需要删除的 ip | 是 |
-
-#### 插入
-<http://127.0.0.1:8000/insert?name=httpbin&ip=555.22.22.55&port=335&country=%E4%B8%AD%E5%9B%BD&anonymity=1&https=yes&speed=5&source=100>
-
-参数
-
-| Name | Type | Description | 是否必须|
-| ----| ---- | ---- | ----|
-| name | str | 数据库名称 |是 |
-| ip | str | ip 地址 | 是|
-| port | str | 端口 |是|
-| country | str | 国家 |否|
-| anonymity | int | 1:高匿,2:匿名,3:透明  |否|
-| https | str | yes:https,no:http |否|
-| speed | float | 访问速度 |否|
-| source | str | ip 来源 |否|
 
 
 ## TODO
